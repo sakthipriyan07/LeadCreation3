@@ -77,7 +77,7 @@ public class Leadcreation {
 		String Date1 = dateFormat.format(new Date());
 		extentreport = new ExtentReports();
 		htmlReporter = new ExtentSparkReporter(
-				"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation\\" + Date1 + "\\extentreport.html");
+				"\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation3\\" + Date1 + "\\extentreport.html");
 		// htmlReporter = new
 		// ExtentSparkReporter("C:\\Users\\admit\\git\\Automation-Critical-Flow\\GRCCriticalflow\\Screenshots\\"+Date1+"\\extentreport.html");
 
@@ -120,15 +120,11 @@ public class Leadcreation {
 
 		Base base = new Base();
 		base.Base1(driver, CrmUsernames, GRCMobileNumber, extentreport);
-		base.GstFiling(driver, CrmUsernames, GRCMobileNumber, extentreport);
-		Thread.sleep(4000);
-	//	base.Base1(driver, CrmUsernames, GRCMobileNumber, extentreport);
-		base.Meesho(driver, CrmUsernames, GRCMobileNumber, extentreport);
+		base.TalkToLawyer(driver, CrmUsernames, GRCMobileNumber, extentreport);
 		Thread.sleep(4000);
 		base.Base1(driver, CrmUsernames, GRCMobileNumber, extentreport);
-		base.TrademarkRegistration(driver, CrmUsernames, GRCMobileNumber, extentreport);
-		Thread.sleep(4000);
-		base.helpdesk(driver, CrmUsernames, GRCMobileNumber, extentreport, Helpdeskuserid, helpdeskpassword);
+		base.TalkToCA(driver, CrmUsernames, GRCMobileNumber, extentreport);
+	base.helpdesk(driver, CrmUsernames, GRCMobileNumber, extentreport, Helpdeskuserid, helpdeskpassword);
 	}
 
 	@AfterClass
