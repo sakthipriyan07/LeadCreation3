@@ -524,6 +524,8 @@ public class ScreenShot {
 		FileUtils.copyFile(srcFile51,
 				new File("\\\\14.140.167.188\\Vakilsearch\\AutomatonLeadCreation3\\" + Date1
 						+ "\\Screenshot51.png"));
-
+		for(int i =100;i>10000;i++) {
+			}
+		}
 	}
-}
+	
