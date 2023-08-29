@@ -74,28 +74,31 @@ public class Base extends HelpdeskPageobject {
 		WebElement element3 = driver.findElement(By.xpath("//div[@class='styles_wrap__VVway']/child::div"));
 		JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 		executor3.executeScript("arguments[0].click();", element3);
-		driver.findElement(By.xpath("(//ul[@class='styles_menu__XJXj6']/child::a)[1]")).click();
+		Thread.sleep(2500);
 		long start = System.currentTimeMillis();
-
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='mb-4 relative'])[1]")))
+		driver.findElement(By.xpath("(//ul[@class='styles_menu__XJXj6']/child::a)[1]")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='email']")))
 				.click();
+		
 
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start;
 		long seconds = TimeUnit.MILLISECONDS.toSeconds(totalTime);
 		test.log(Status.PASS, "Lead form page " + seconds);
-
-		LoginPageobjects.Email.sendKeys("shakthi" + Date11 + "@yopmail.com");
-		WebElement findElement = driver.findElement(By.xpath("(//label[@class='custom_label']/child::input)[1]"));
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("shakthi" + Date11 + "@yopmail.com");
+		WebElement findElement = driver.findElement(By.xpath("//input[@id='phone']"));
 		findElement.click();
 		findElement.sendKeys("9789955331");
 
 		Thread.sleep(2000);
 
-		WebElement element3001 = driver.findElement(By.xpath("(//label[@class='custom_label']/child::input)[3]"));
+		WebElement element3001 = driver.findElement(By.xpath("((//div[@class=' css-l6t7jn-control'])[1]/child::div)[1]"));
 		JavascriptExecutor executor3001 = (JavascriptExecutor) driver;
 		executor3001.executeScript("arguments[0].click();", element3001);
-		element3001.sendKeys("chen");
+		Thread.sleep(8000);
+		
+	
+		driver.findElement(By.xpath("(//div[@class=' css-10ccdir'])[1]")).sendKeys("chen");
 
 		Thread.sleep(16000);
 		WebElement element3002 = driver.findElement(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]"));
