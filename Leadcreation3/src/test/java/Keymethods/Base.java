@@ -46,18 +46,18 @@ public class Base extends HelpdeskPageobject {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		driver.manage().window().maximize();
 
-		driver.get("https://qe.vakilsearch.com/");
+		driver.get("https://vakilsearch.com/");
 
 		PageFactory.initElements(driver, LoginPageobjects.class);
 		if (driver.getTitle() != "Online Legal Services for Startups & SMEs in India | Vakil Search") {
 			screenshot.screenshot1(driver, extentreport);
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyy");
 			String Date1 = dateFormat.format(new Date());
-			test.log(Status.PASS,"VakilSearchURL launched");
+			test.log(Status.PASS, "VakilSearchURL launched");
 
 		} else {
-			
-			test.log(Status.FAIL,"VakilSearchURL");
+
+			test.log(Status.FAIL, "VakilSearchURL");
 
 		}
 
@@ -77,34 +77,50 @@ public class Base extends HelpdeskPageobject {
 		Thread.sleep(2500);
 		long start = System.currentTimeMillis();
 		driver.findElement(By.xpath("(//ul[@class='styles_menu__XJXj6']/child::a)[1]")).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='email']")))
-				.click();
-		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='email']"))).click();
 
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start;
 		long seconds = TimeUnit.MILLISECONDS.toSeconds(totalTime);
 		test.log(Status.PASS, "Lead form page " + seconds);
-        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("shakthi" + Date11 + "@yopmail.com");
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("shakthi" + Date11 + "@yopmail.com");
 		WebElement findElement = driver.findElement(By.xpath("//input[@id='phone']"));
 		findElement.click();
 		findElement.sendKeys("9789955331");
 
-		Thread.sleep(2000);
-
-		WebElement element3001 = driver.findElement(By.xpath("((//div[@class=' css-l6t7jn-control'])[1]/child::div)[1]"));
-		JavascriptExecutor executor3001 = (JavascriptExecutor) driver;
-		executor3001.executeScript("arguments[0].click();", element3001);
-		Thread.sleep(8000);
-		
 	
-		driver.findElement(By.xpath("(//div[@class=' css-10ccdir'])[1]")).sendKeys("chen");
-
-		Thread.sleep(16000);
-		WebElement element3002 = driver.findElement(By.xpath("//div[contains(text(),'Chennai, Tamil Nadu')]"));
-		JavascriptExecutor executor3002 = (JavascriptExecutor) driver;
-		executor3002.executeScript("arguments[0].click();", element3002);
+		Thread.sleep(8000);
 		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		robot.keyPress(KeyEvent.VK_C);
+		robot.keyRelease(KeyEvent.VK_C);
+		robot.keyPress(KeyEvent.VK_H);
+		robot.keyRelease(KeyEvent.VK_H);
+		robot.keyPress(KeyEvent.VK_E);
+		robot.keyRelease(KeyEvent.VK_E);
+		robot.keyPress(KeyEvent.VK_N);
+		robot.keyRelease(KeyEvent.VK_N);
+		Thread.sleep(4000);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+
+		Thread.sleep(2000);
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		robot.keyPress(KeyEvent.VK_E);
+		robot.keyRelease(KeyEvent.VK_E);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		
+		Thread.sleep(2000);
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		robot.keyPress(KeyEvent.VK_L);
+		robot.keyRelease(KeyEvent.VK_L);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+	
 
 //		if (LoginPageobjects.whatsapptogleoff.isSelected()) {
 //
@@ -113,20 +129,12 @@ public class Base extends HelpdeskPageobject {
 //System.out.println("failed");
 //			test.log(Status.FAIL, "whatsapptogleoff Failed");
 //		}
-		driver.findElement(By.xpath("(//div[@class=' css-tvuzxl-control']/child::div)[1]")).click();
-		Thread.sleep(1000);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//div[@class=' css-tvuzxl-control']/child::div)[2]")).click();
-		Thread.sleep(1000);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
+		
 		long start1 = System.currentTimeMillis();
 
-		WebElement element30011 = driver.findElement(By.xpath("//button[@type='submit']"));
-		JavascriptExecutor executor30011 = (JavascriptExecutor) driver;
-		executor30011.executeScript("arguments[0].click();", element30011);
+		WebElement element300121 = driver.findElement(By.xpath("//button[@type='submit']"));
+		JavascriptExecutor executor300121 = (JavascriptExecutor) driver;
+		executor300121.executeScript("arguments[0].click();", element300121);
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[contains(text(),'Tommorow')]")))
 				.click();
