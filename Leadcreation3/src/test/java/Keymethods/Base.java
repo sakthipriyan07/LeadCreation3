@@ -12,6 +12,7 @@ import java.util.concurrent.TimeoutException;
 import javax.swing.plaf.synth.SynthRadioButtonMenuItemUI;
 
 import org.apache.tools.ant.taskdefs.Sleep;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -37,7 +38,7 @@ public class Base extends HelpdeskPageobject {
 	ScreenShot screenshot = new ScreenShot();
 	SimpleDateFormat dateFormat1 = new SimpleDateFormat("MMddyyyyHHMMSS");
 	String Date11 = dateFormat1.format(new Date());
-	SimpleDateFormat dateFormat2 = new SimpleDateFormat("MMyyMMSS");
+	SimpleDateFormat dateFormat2 = new SimpleDateFormat("ddyyyyhh");
 	String Date12 = dateFormat2.format(new Date());
 
 	public void Base1(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
@@ -74,10 +75,10 @@ public class Base extends HelpdeskPageobject {
 		WebElement element3 = driver.findElement(By.xpath("//div[@class='styles_wrap__VVway']/child::div"));
 		JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 		executor3.executeScript("arguments[0].click();", element3);
-		Thread.sleep(2500);
+		Thread.sleep(4500);
 		long start = System.currentTimeMillis();
 		driver.findElement(By.xpath("(//ul[@class='styles_menu__XJXj6']/child::a)[1]")).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='email']"))).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='email']"))).click();
 
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start;
@@ -86,7 +87,7 @@ public class Base extends HelpdeskPageobject {
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("shakthi" + Date11 + "@yopmail.com");
 		WebElement findElement = driver.findElement(By.xpath("//input[@id='phone']"));
 		findElement.click();
-		findElement.sendKeys("9789955331");
+		findElement.sendKeys("91"+ Date12);
 
 	
 		Thread.sleep(8000);
@@ -136,7 +137,7 @@ public class Base extends HelpdeskPageobject {
 		JavascriptExecutor executor300121 = (JavascriptExecutor) driver;
 		executor300121.executeScript("arguments[0].click();", element300121);
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[contains(text(),'Tommorow')]")))
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[contains(text(),'Tomorrow')]")))
 				.click();
 
 		long finish1 = System.currentTimeMillis();
@@ -148,12 +149,12 @@ public class Base extends HelpdeskPageobject {
 
 		Thread.sleep(3000);
 		WebElement element300111 = driver
-				.findElement(By.xpath("(//div[@class='styles_timeCards__Ufzlb']/child::div)[1]"));
+				.findElement(By.xpath("(//div[@class='py-[10px] w-full flex justify-center items-center h-[36px] border-[1px] rounded cursor-pointer md:py-[10px] border-[#231f20]'])[1]"));
 		JavascriptExecutor executor300111 = (JavascriptExecutor) driver;
 		executor300111.executeScript("arguments[0].click();", element300111);
 
 		WebElement element3001111 = driver
-				.findElement(By.xpath("(//div[@class='styles_fixedFoooter___ZqAn']/child::button)[1]"));
+				.findElement(By.xpath("(//button[contains(text(),'Next')])[1]"));
 		JavascriptExecutor executor3001111 = (JavascriptExecutor) driver;
 		executor3001111.executeScript("arguments[0].click();", element3001111);
 
@@ -161,26 +162,42 @@ public class Base extends HelpdeskPageobject {
 		// slick-active']/child::div)[1]")).click();
 		// driver.findElement(By.xpath("(//div[@class='styles_timeCards__Ufzlb']/child::div)[1]")).click();
 		// driver.findElement(By.xpath("(//div[@class='styles_fixedFoooter___ZqAn']/child::button)[1]")).click();
+//		try {
+//			Thread.sleep(2500);
+//			driver.findElement(By.xpath("(//div[@class='fixed-footer-new styles_backFooter__S_D4B']/child::button)[2]"))
+//					.click();
+//			driver.findElement(By.xpath(
+//					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[1]"))
+//					.sendKeys("0");
+//			driver.findElement(By.xpath(
+//					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[2]"))
+//					.sendKeys("0");
+//			driver.findElement(By.xpath(
+//					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[3]"))
+//					.sendKeys("0");
+//			driver.findElement(By.xpath(
+//					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[4]"))
+//					.sendKeys("0");
+//				
+//		} catch (Exception eri) {
+//			Thread.sleep(2500);
+//			System.out.println(eri);
+		
+//		}
+		Thread.sleep(5000);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		
 		try {
-			Thread.sleep(2500);
-			driver.findElement(By.xpath("(//div[@class='fixed-footer-new styles_backFooter__S_D4B']/child::button)[2]"))
-					.click();
-			driver.findElement(By.xpath(
-					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[1]"))
-					.sendKeys("0");
-			driver.findElement(By.xpath(
-					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[2]"))
-					.sendKeys("0");
-			driver.findElement(By.xpath(
-					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[3]"))
-					.sendKeys("0");
-			driver.findElement(By.xpath(
-					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[4]"))
-					.sendKeys("0");
-
-		} catch (Exception eri) {
-			Thread.sleep(2500);
-			System.out.println(eri);
+			driver.switchTo().alert().accept();
+		} catch (Exception e) {
+		System.out.println("No alert");
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_R);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
 		}
 	}
 
@@ -198,50 +215,55 @@ public class Base extends HelpdeskPageobject {
 		long totalTime = finish - start;
 		System.out.println("Total Time for page load - " + totalTime);
 		test.log(Status.PASS, "Lead form page " + totalTime);
-
+Thread.sleep(3000);
 		// HelpdeskPageobject.GSTRegistration.click();
+		WebElement findElement2 = driver.findElement(By.xpath("//input[@id='email']"));
+		
+		findElement2.click();
+		findElement2.sendKeys("shakthi" + Date11 + "@yopmail.com");
 
-		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='service_form_primary_email']")));
-		LoginPageobjects.Email.click();
-		LoginPageobjects.Email.sendKeys("shakthi" + Date11 + "@yopmail.com");
-
-		WebElement findElement = driver.findElement(By.xpath("(//label[@class='custom_label']/child::input)[1]"));
-		findElement.click();
-		findElement.sendKeys("9789955331");
+		WebElement findElement2122 = driver.findElement(By.xpath("//input[@id='phone']"));
+		findElement2122.click();
+		findElement2122.sendKeys("91"+ Date12);
 
 		Thread.sleep(4000);
-
-		driver.findElement(By.xpath("(//div[@class=' css-1wy0on6'])[1]")).click();
-//		JavascriptExecutor executor3001 = (JavascriptExecutor) driver;
-//		executor3001.executeScript("arguments[0].click();", element3001);
+		Thread.sleep(8000);
 		Robot robot = new Robot();
-
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		robot.keyPress(KeyEvent.VK_C);
+		robot.keyRelease(KeyEvent.VK_C);
+		robot.keyPress(KeyEvent.VK_H);
+		robot.keyRelease(KeyEvent.VK_H);
+		robot.keyPress(KeyEvent.VK_E);
+		robot.keyRelease(KeyEvent.VK_E);
+		robot.keyPress(KeyEvent.VK_N);
+		robot.keyRelease(KeyEvent.VK_N);
+		Thread.sleep(4000);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 
-//		if (LoginPageobjects.whatsapptogleoff.isSelected()) {
-//
-//			test.log(Status.PASS, "whatsapptogle off");
-//		} else {
-//System.out.println("failed");
-//			test.log(Status.FAIL, "whatsapptogleoff Failed");
-//		}
-		driver.findElement(By.xpath("(//div[@class=' css-1wy0on6'])[2]")).click();
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
+		Thread.sleep(2000);
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		robot.keyPress(KeyEvent.VK_E);
+		robot.keyRelease(KeyEvent.VK_E);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//div[@class=' css-1wy0on6'])[3]")).click();
-		robot.keyPress(KeyEvent.VK_DOWN);
-		robot.keyRelease(KeyEvent.VK_DOWN);
+		
+		Thread.sleep(2000);
+		robot.keyPress(KeyEvent.VK_TAB);
+		robot.keyRelease(KeyEvent.VK_TAB);
+		robot.keyPress(KeyEvent.VK_L);
+		robot.keyRelease(KeyEvent.VK_L);
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
+	
+
 		Thread.sleep(2500);
 		long start1 = System.currentTimeMillis();
 
-		WebElement element300119 = driver.findElement(By.xpath("//div[@class='serviceaction']/child::button"));
+		WebElement element300119 = driver.findElement(By.xpath("//button[@type='submit']"));
 		JavascriptExecutor executor300119 = (JavascriptExecutor) driver;
 		executor300119.executeScript("arguments[0].click();", element300119);
 
@@ -255,45 +277,24 @@ public class Base extends HelpdeskPageobject {
 		test.log(Status.PASS, "Age of Business selection page " + totalTime);
 
 		wait.until(ExpectedConditions.elementToBeClickable(
-				By.xpath("(//div[@class='slick-slide slick-active']/child::div)[1]/child::div/child::h2")));
+				By.xpath("//h2[contains(text(),'Tomorrow')]")));
 		WebElement element30011 = driver
-				.findElement(By.xpath("(//div[@class='slick-slide slick-active']/child::div)[1]/child::div/child::h2"));
+				.findElement(By.xpath("//h2[contains(text(),'Tomorrow')]"));
 		JavascriptExecutor executor30011 = (JavascriptExecutor) driver;
 		executor30011.executeScript("arguments[0].click();", element30011);
 
 		Thread.sleep(3000);
-		WebElement element300111 = driver.findElement(By.xpath("(//div[@class='styles_timeCard__K4238 false'])[1]"));
+		WebElement element300111 = driver.findElement(By.xpath("(//div[@class='py-[10px] w-full flex justify-center items-center h-[36px] border-[1px] rounded cursor-pointer md:py-[10px] border-[#231f20]'])[1]"));
 		JavascriptExecutor executor300111 = (JavascriptExecutor) driver;
 		executor300111.executeScript("arguments[0].click();", element300111);
 		Thread.sleep(1500);
 		WebElement element3001111 = driver
-				.findElement(By.xpath("(//div[@class='styles_fixedFoooter__x8Oud']/child::button)[1]"));
+				.findElement(By.xpath("(//button[contains(text(),'Next')])[1]"));
 		JavascriptExecutor executor3001111 = (JavascriptExecutor) driver;
 		executor3001111.executeScript("arguments[0].click();", element3001111);
 
 		Thread.sleep(2500);
-		driver.findElement(By.xpath("//div[@class='fixed-footer-new']/child::button")).click();
-		// driver.findElement(By.xpath("(//div[@class='styles_timeCards__Ufzlb']/child::div)[1]")).click();
-		// driver.findElement(By.xpath("(//div[@class='styles_fixedFoooter___ZqAn']/child::button)[1]")).click();
-		try {
-			Thread.sleep(2500);
-
-			driver.findElement(By.xpath(
-					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[1]"))
-					.sendKeys("0");
-			driver.findElement(By.xpath(
-					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[2]"))
-					.sendKeys("0");
-			driver.findElement(By.xpath(
-					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[3]"))
-					.sendKeys("0");
-			driver.findElement(By.xpath(
-					"(//section[@class='styles_otpInputContainer__5FhUw otp-input-container ']/child::input)[4]"))
-					.sendKeys("0");
-		} catch (Exception Otp) {
-			Thread.sleep(2500);
-			System.out.println(Otp);
-		}
+	
 	}
 
 	public void helpdesk(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport,
@@ -326,7 +327,7 @@ public class Base extends HelpdeskPageobject {
 			WebElement element501011 = driver.findElement(By.xpath("//input[@id='search']"));
 			JavascriptExecutor executor501011 = (JavascriptExecutor) driver;
 			executor501011.executeScript("arguments[0].click();", element501011);
-			element501011.sendKeys("9789955331");
+			element501011.sendKeys("91"+ Date12);
 			driver.findElement(By.xpath("(//input[@type='submit'])[1]")).click();
 
 			String ticket2 = driver
