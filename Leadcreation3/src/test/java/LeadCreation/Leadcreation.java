@@ -97,8 +97,8 @@ public class Leadcreation {
 		option.addArguments("start-maximized");
 		capabilities.setCapability(ChromeOptions.CAPABILITY, option);
 		option.addArguments("--headless");
-
-		driver = new ChromeDriver();
+//
+		driver = new ChromeDriver(capabilities);
 		driver.manage().window().maximize();
 
 	}
