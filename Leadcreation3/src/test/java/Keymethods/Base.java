@@ -136,7 +136,7 @@ public class Base extends HelpdeskPageobject {
 		WebElement element300121 = driver.findElement(By.xpath("//button[@type='submit']"));
 		JavascriptExecutor executor300121 = (JavascriptExecutor) driver;
 		executor300121.executeScript("arguments[0].click();", element300121);
-
+Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[contains(text(),'Tomorrow')]")))
 				.click();
 
