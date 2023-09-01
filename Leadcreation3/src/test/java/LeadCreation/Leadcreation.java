@@ -98,7 +98,7 @@ public class Leadcreation {
 		capabilities.setCapability(ChromeOptions.CAPABILITY, option);
 		option.addArguments("--headless");
 
-		driver = new ChromeDriver(capabilities);
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 
 	}
