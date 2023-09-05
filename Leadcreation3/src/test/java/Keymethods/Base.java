@@ -299,6 +299,8 @@ Thread.sleep(3000);
 
 	public void helpdesk(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport,
 			String Helpdeskuserid, String helpdeskpassword) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
 		test = extentreport.createTest("HelpDesk lead Verification Result");
 		driver.get("https://helpdesk.vakilsearch.com/login");
 
@@ -324,6 +326,8 @@ Thread.sleep(3000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		Thread.sleep(8000);
 		try {
+			wait.until(
+					ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='search']")));
 			WebElement element501011 = driver.findElement(By.xpath("//input[@id='search']"));
 			JavascriptExecutor executor501011 = (JavascriptExecutor) driver;
 			executor501011.executeScript("arguments[0].click();", element501011);
