@@ -43,7 +43,7 @@ public class Base extends HelpdeskPageobject {
 
 	public void Base1(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
 			throws InterruptedException, AWTException, IOException {
-		test = extentreport.createTest("Vakilsearch landing page redirection");
+		test = extentreport.createTest("Vakilsearch landing page");
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		driver.manage().window().maximize();
 
