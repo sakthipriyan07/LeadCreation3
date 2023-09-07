@@ -43,7 +43,7 @@ public class Base extends HelpdeskPageobject {
 
 	public void Base1(WebDriver driver, String Username, String Mobilenumber, ExtentReports extentreport)
 			throws InterruptedException, AWTException, IOException {
-		test = extentreport.createTest("Vakilsearch Test");
+		test = extentreport.createTest("Vakilsearch landing page redirection");
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		driver.manage().window().maximize();
 
@@ -83,7 +83,7 @@ public class Base extends HelpdeskPageobject {
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start;
 		long seconds = TimeUnit.MILLISECONDS.toSeconds(totalTime);
-		test.log(Status.PASS, "Lead form page " + seconds);
+		test.log(Status.PASS, "Talk to lawyer page redirection " + seconds);
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("shakthi" + Date11 + "@yopmail.com");
 		WebElement findElement = driver.findElement(By.xpath("//input[@id='phone']"));
 		findElement.click();
@@ -137,7 +137,7 @@ public class Base extends HelpdeskPageobject {
 		JavascriptExecutor executor300121 = (JavascriptExecutor) driver;
 		executor300121.executeScript("arguments[0].click();", element300121);
 Thread.sleep(3000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[contains(text(),'Tomorrow')]")))
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h2[contains(text(),'Tomorrow')]")))
 				.click();
 
 		long finish1 = System.currentTimeMillis();
@@ -145,7 +145,7 @@ Thread.sleep(3000);
 		System.out.println("Total Time for page load - " + totalTime1);
 		Thread.sleep(3500);
 
-		test.log(Status.PASS, "Lead form page " + totalTime1);
+		test.log(Status.PASS, "Date form page Redirection " + totalTime1);
 
 		Thread.sleep(3000);
 		WebElement element300111 = driver
@@ -153,11 +153,19 @@ Thread.sleep(3000);
 		JavascriptExecutor executor300111 = (JavascriptExecutor) driver;
 		executor300111.executeScript("arguments[0].click();", element300111);
 
+		long start11 = System.currentTimeMillis();
 		WebElement element3001111 = driver
 				.findElement(By.xpath("(//button[contains(text(),'Next')])[1]"));
 		JavascriptExecutor executor3001111 = (JavascriptExecutor) driver;
 		executor3001111.executeScript("arguments[0].click();", element3001111);
 
+		
+		long finish11 = System.currentTimeMillis();
+		long totalTime11 = finish11 - start11;
+		System.out.println("Pament page Redirection " + totalTime11);
+		Thread.sleep(3500);
+
+		test.log(Status.PASS, "Pament page Redirection " + totalTime11);
 		// driver.findElement(By.xpath("(//div[@class='slick-slide
 		// slick-active']/child::div)[1]")).click();
 		// driver.findElement(By.xpath("(//div[@class='styles_timeCards__Ufzlb']/child::div)[1]")).click();
@@ -211,10 +219,12 @@ Thread.sleep(3000);
 		executor3.executeScript("arguments[0].click();", element3);
 		long start = System.currentTimeMillis();
 		driver.findElement(By.xpath("(//ul[@class='styles_menu__XJXj6']/child::a)[2]")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(
+				By.xpath("//input[@id='email']")));
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start;
 		System.out.println("Total Time for page load - " + totalTime);
-		test.log(Status.PASS, "Lead form page " + totalTime);
+		test.log(Status.PASS, "Talk to CA page redirection" + totalTime);
 Thread.sleep(3000);
 		// HelpdeskPageobject.GSTRegistration.click();
 		WebElement findElement2 = driver.findElement(By.xpath("//input[@id='email']"));
@@ -274,7 +284,7 @@ Thread.sleep(3000);
 
 		System.out.println("Total Time for page load - " + totalTime1);
 		Thread.sleep(6500);
-		test.log(Status.PASS, "Age of Business selection page " + totalTime);
+		test.log(Status.PASS, "Age of Business page redirection" + totalTime);
 
 		wait.until(ExpectedConditions.elementToBeClickable(
 				By.xpath("//h2[contains(text(),'Tomorrow')]")));
@@ -288,12 +298,22 @@ Thread.sleep(3000);
 		JavascriptExecutor executor300111 = (JavascriptExecutor) driver;
 		executor300111.executeScript("arguments[0].click();", element300111);
 		Thread.sleep(1500);
+		
+		long start11 = System.currentTimeMillis();
+		
 		WebElement element3001111 = driver
 				.findElement(By.xpath("(//button[contains(text(),'Next')])[1]"));
 		JavascriptExecutor executor3001111 = (JavascriptExecutor) driver;
 		executor3001111.executeScript("arguments[0].click();", element3001111);
 
 		Thread.sleep(2500);
+
+		long finish11 = System.currentTimeMillis();
+		long totalTime11 = finish11 - start11;
+		System.out.println("Pament page Redirection " + totalTime11);
+		Thread.sleep(3500);
+
+		test.log(Status.PASS, "Pament page Redirection " + totalTime11);
 	
 	}
 
