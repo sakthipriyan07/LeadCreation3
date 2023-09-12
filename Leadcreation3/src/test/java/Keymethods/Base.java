@@ -45,7 +45,7 @@ public class Base extends HelpdeskPageobject {
 			throws InterruptedException, AWTException, IOException {
 		test = extentreport.createTest("Vakilsearch landing page");
 		WebDriverWait wait = new WebDriverWait(driver, 30);
-		driver.manage().window().maximize();
+//		driver.manage().window().maximize();
 
 		driver.get("https://vakilsearch.com/");
 
@@ -136,7 +136,7 @@ public class Base extends HelpdeskPageobject {
 		WebElement element300121 = driver.findElement(By.xpath("//button[@type='submit']"));
 		JavascriptExecutor executor300121 = (JavascriptExecutor) driver;
 		executor300121.executeScript("arguments[0].click();", element300121);
-Thread.sleep(3000);
+
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h2[contains(text(),'Tomorrow')]")))
 				.click();
 
@@ -356,11 +356,11 @@ Thread.sleep(3000);
 
 			String ticket2 = driver
 					.findElement(
-							By.xpath("(//tr[@class='ticket_index_tr'])[2]//child::td/child::div/child::ul/child::li"))
+							By.xpath("((//tr[@class='ticket_index_tr'])[1]//child::td/child::div/child::ul/child::li)[2]"))
 					.getText().substring(0, 28);
 			String ticket1 = driver
 					.findElement(
-							By.xpath("(//tr[@class='ticket_index_tr'])[1]//child::td/child::div/child::ul/child::li"))
+							By.xpath("((//tr[@class='ticket_index_tr'])[1]//child::td/child::div/child::ul/child::li)[1]"))
 					.getText().substring(0, 32);
 
 			String ticket01 = "Need Help with : Talk to a Lawyer";
@@ -373,8 +373,16 @@ Thread.sleep(3000);
 				test.log(Status.FAIL, "Need Help with : Talk to a Lawyer lead Failed");
 			}
 
+			if (ticket02.contains(ticket2)) {
+
+				test.log(Status.PASS, "Need Help with : Talk to a CA lead verified");
+			} else {
+				test.log(Status.FAIL, "Need Help with : Talk to a CA lead Failed");
+			}
+			
 		} catch (Exception Search) {
 			System.out.println(Search);
+			test.log(Status.FAIL, "Lead validation Failed");
 
 		}
 		// TODO Auto-generated method stub
