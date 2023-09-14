@@ -214,11 +214,11 @@ public class Base extends HelpdeskPageobject {
 		test = extentreport.createTest("TalkToCA");
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Thread.sleep(2000);
-		WebElement element3 = driver.findElement(By.xpath("//div[@class='styles_wrap__VVway']/child::div"));
+		WebElement element3 = driver.findElement(By.xpath("(//p[contains(text(),'Consult an Expert')])[1]"));
 		JavascriptExecutor executor3 = (JavascriptExecutor) driver;
 		executor3.executeScript("arguments[0].click();", element3);
 		long start = System.currentTimeMillis();
-		driver.findElement(By.xpath("(//ul[@class='styles_menu__XJXj6']/child::a)[2]")).click();
+		driver.findElement(By.xpath("(//a[contains(text(),'Talk to a Lawyer')])[1]")).click();
 		wait.until(ExpectedConditions.elementToBeClickable(
 				By.xpath("//input[@id='email']")));
 		long finish = System.currentTimeMillis();
