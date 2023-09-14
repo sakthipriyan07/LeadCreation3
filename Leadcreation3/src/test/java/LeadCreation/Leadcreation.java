@@ -148,7 +148,7 @@ public class Leadcreation {
 		SendMailSSLWithAttachment Mail = new SendMailSSLWithAttachment();
 		Mail.main();
 		// System.out.println("Test completed1");
-		// driver.quit();
+		 driver.quit();
 	}
 
 }
